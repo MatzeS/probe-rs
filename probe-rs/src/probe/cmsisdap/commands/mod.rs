@@ -1,5 +1,6 @@
 pub mod general;
 pub mod jtag;
+pub mod riotee;
 pub mod swd;
 pub mod swj;
 pub mod swo;
@@ -406,6 +407,8 @@ pub enum CommandId {
     UartControl = 0x22,
     UartStatus = 0x23,
     UartTransfer = 0x21,
+
+    RioteeTargetPower = 0x81,
 }
 
 pub(crate) trait Request {

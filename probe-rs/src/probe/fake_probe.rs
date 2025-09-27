@@ -572,6 +572,10 @@ impl RawDapAccess for FakeProbe {
     fn core_status_notification(&mut self, _: crate::CoreStatus) -> Result<(), DebugProbeError> {
         Ok(())
     }
+
+    fn riotee_target_power(&mut self, _: bool) -> Result<(), DebugProbeError> {
+        unimplemented!()
+    }
 }
 
 #[derive(Debug)]

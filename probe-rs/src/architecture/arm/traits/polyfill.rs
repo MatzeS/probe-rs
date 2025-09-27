@@ -1172,6 +1172,10 @@ impl<Probe: DebugProbe + RawSwdIo + JtagAccess + 'static> RawDapAccess for Probe
     fn core_status_notification(&mut self, _: crate::CoreStatus) -> Result<(), DebugProbeError> {
         Ok(())
     }
+
+    fn riotee_target_power(&mut self, _: bool) -> Result<(), DebugProbeError> {
+        unimplemented!()
+    }
 }
 
 fn send_sequence<P: RawSwdIo + JtagAccess>(

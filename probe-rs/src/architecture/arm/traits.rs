@@ -306,6 +306,9 @@ pub trait RawDapAccess {
 
     /// Inform the probe of the [`CoreStatus`] of the chip attached to the probe.
     fn core_status_notification(&mut self, state: CoreStatus) -> Result<(), DebugProbeError>;
+
+    /// Control target power supply.
+    fn riotee_target_power(&mut self, on: bool) -> Result<(), DebugProbeError>;
 }
 
 /// High-level DAP register access.

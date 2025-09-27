@@ -390,4 +390,8 @@ impl RawDapAccess for Glasgow {
     ) -> Result<(), DebugProbeError> {
         Ok(())
     }
+
+    fn riotee_target_power(&mut self, _: bool) -> Result<(), DebugProbeError> {
+        unimplemented!()
+    }
 }

@@ -806,6 +806,15 @@ impl CmsisDap {
 
         Ok(())
     }
+
+    fn riotee_target_power(&mut self, on: bool) -> Result<(), CmsisDapError> {
+        commands::send_command(
+            &mut self.device,
+            &commands::riotee::target_power::TargetPower::new(on),
+        )?;
+
+        Ok(())
+    }
 }
 
 impl DebugProbe for CmsisDap {
@@ -1192,6 +1201,13 @@ impl RawDapAccess for CmsisDap {
         let Pins(response) = commands::send_command(&mut self.device, &request)?;
 
         Ok(response as u32)
+    }
+
+    fn riotee_target_power(&mut self, on: bool) -> Result<(), DebugProbeError> {
+        self.connect_if_needed()?;
+        self.riotee_target_power(on)?;
+
+        Ok(())
     }
 }
 
