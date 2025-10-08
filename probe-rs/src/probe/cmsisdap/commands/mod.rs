@@ -409,6 +409,7 @@ pub enum CommandId {
     UartTransfer = 0x21,
 
     RioteeTargetPower = 0x81,
+    RioteeEnterProbeBootloader = 0x8C,
 }
 
 pub(crate) trait Request {

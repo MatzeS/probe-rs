@@ -309,6 +309,9 @@ pub trait RawDapAccess {
 
     /// Control target power supply.
     fn riotee_target_power(&mut self, on: bool) -> Result<(), DebugProbeError>;
+
+    /// Enters the RP2040 bootloader of the riotee probe/board.
+    fn riotee_probe_enter_bootloader(&mut self) -> Result<(), DebugProbeError>;
 }
 
 /// High-level DAP register access.

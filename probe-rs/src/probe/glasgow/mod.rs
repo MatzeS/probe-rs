@@ -394,4 +394,8 @@ impl RawDapAccess for Glasgow {
     fn riotee_target_power(&mut self, _: bool) -> Result<(), DebugProbeError> {
         unimplemented!()
     }
+
+    fn riotee_probe_enter_bootloader(&mut self) -> Result<(), DebugProbeError> {
+        unimplemented!()
+    }
 }
