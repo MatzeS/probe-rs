@@ -824,6 +824,12 @@ impl CmsisDap {
 
         Ok(())
     }
+
+    fn riotee_probe_bypass(&mut self, on: bool) -> Result<(), DebugProbeError> {
+        commands::send_command(&mut self.device, &commands::riotee::bypass::Bypass::new(on))?;
+
+        Ok(())
+    }
 }
 
 impl DebugProbe for CmsisDap {
@@ -1222,6 +1228,13 @@ impl RawDapAccess for CmsisDap {
     fn riotee_probe_enter_bootloader(&mut self) -> Result<(), DebugProbeError> {
         self.connect_if_needed()?;
         self.riotee_probe_enter_bootloader()?;
+
+        Ok(())
+    }
+
+    fn riotee_probe_set_bypass(&mut self, on: bool) -> Result<(), DebugProbeError> {
+        self.connect_if_needed()?;
+        self.riotee_probe_bypass(on)?;
 
         Ok(())
     }
